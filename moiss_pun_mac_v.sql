@@ -1,0 +1,198 @@
+-- =========================================================================
+-- $Header$
+--
+-- Name                               : moiss_doc_lib_v.sql
+--
+-- Description     :   Table Creation Scripts for  Moiss Document Library
+--
+--
+-- Who                                                      Remarks                                    Date
+-- --------------                           ---------------------------------------   -----------------
+-- Gowtham Raam.J -4iApps     1.0 - Initial Version                        12-Nov-2013
+-- =========================================================================
+         
+CREATE OR REPLACE FORCE VIEW MOISS_PUNCH_INFO_V
+(        
+ROW_ID ,        
+PUNCH_INFO_ID,
+PUNCH_CODE,
+PUNCH_CODE_DESC,                       
+EMPLOYEE_NUMBER,
+EMPLOYEE_NAME,                  
+PUNCH_DATE,   
+STATE, 
+NEW_STATE,
+EXCEPTION,
+DEPARTMENT,
+MAN_ENTRY_YN,
+REMARKS,    
+PROC_YN,          
+PROC_USER_ID,        
+PROC_DATE,                 
+ATT_ID,            
+USER_NAME,   
+ATTRIBUTE_CATEGORY,
+ATTRIBUTE1,
+ATTRIBUTE2,
+ATTRIBUTE3,
+ATTRIBUTE4, 
+ATTRIBUTE5,
+ATTRIBUTE6,
+ATTRIBUTE7,
+ATTRIBUTE8,
+ATTRIBUTE9,
+ATTRIBUTE10,
+CREATED_BY,
+CREATION_DATE,
+LAST_UPDATED_BY,
+LAST_UPDATE_DATE,
+LAST_UPDATE_LOGIN           
+)
+AS          
+SELECT  
+MI.ROWID,
+MI.PUNCH_INFO_ID,
+MI.PUNCH_CODE,            
+FCL1.MEANING PUNCH_CODE_DESC,           
+MI.EMPLOYEE_NUMBER,
+MI.EMPLOYEE_NAME,                  
+MI.PUNCH_DATE,   
+MI.STATE, 
+MI.NEW_STATE,
+MI.EXCEPTION,
+MI.DEPARTMENT,
+MI.MAN_ENTRY_YN,
+MI.REMARKS,
+MI.PROC_YN,                    --PROCESS FLAG
+MI.PROC_USER_ID,                    --PROCESS USER ID
+MI.PROC_DATE,                    --PROCESS DATE
+MI.ATT_ID,                   --ATT ID FROM MOISS_EMP_ATTENDANCE WHICH IS A SEQUENCE NUMBER GETS STORED
+ FU.USER_NAME,                  --USER NAME 
+MI.ATTRIBUTE_CATEGORY,
+MI.ATTRIBUTE1,
+MI.ATTRIBUTE2,
+MI.ATTRIBUTE3,
+MI.ATTRIBUTE4, 
+MI.ATTRIBUTE5,
+MI.ATTRIBUTE6,
+MI.ATTRIBUTE7,
+MI.ATTRIBUTE8,
+MI.ATTRIBUTE9,
+MI.ATTRIBUTE10,
+MI.CREATED_BY,
+MI.CREATION_DATE,
+MI.LAST_UPDATED_BY,
+MI.LAST_UPDATE_DATE,
+MI.LAST_UPDATE_LOGIN
+FROM  MOISS_PUNCH_INFO MI,
+FND_LOOKUP_VALUES FCL1,
+FND_USER FU
+WHERE       FCL1.LOOKUP_TYPE = 'MOISS_MACHINES'
+            AND FCL1.LOOKUP_CODE = MI.PUNCH_CODE
+            AND FCL1.ENABLED_FLAG = 'Y'
+            AND SYSDATE  BETWEEN FCL1.START_DATE_ACTIVE AND    NVL (FCL1.END_DATE_ACTIVE, TRUNC(SYSDATE)+1)
+             AND  FU.USER_ID(+)=MI.PROC_USER_ID;  
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE FORCE VIEW MOISS_EMP_ATTENDANCE_V
+(     
+    
+
+
+ 
+        ATTENDANCE_ID,     
+        EMP_NUM,           
+        DEPT_ID,
+        DATE_CAPTURE,
+        ON_DUTY,
+        OFF_DUTY,
+        CLOCK_IN,
+        CLOCK_OUT,
+        LATE,
+        EARLY,
+        ABSENT_FLAG_YN,
+        TOTAL_WORK_TIME,
+        OT_HRS,
+        HOLIDAY_YN,
+        APPROVE_FLAG_YN,
+        PROCESS_FLAG_YN,
+        MANUAL_ENT_Y,
+        REMARKS/NOTE,
+        ATTRIBUTE_CATEGORY,
+        ATTRIBUTE1,
+        ATTRIBUTE2,
+        ATTRIBUTE3,
+        ATTRIBUTE4,
+        ATTRIBUTE5,
+        ATTRIBUTE6,
+        ATTRIBUTE7,
+        ATTRIBUTE8,
+        ATTRIBUTE9,
+        ATTRIBUTE10,
+        CREATED_BY,
+        CREATION_DATE,
+        LAST_UPDATED_BY,
+        LAST_UPDATE_DATE,
+        LAST_UPDATE_LOGIN
+        
+)
+as
+SELECT
+MA.ATTENDANCE_ID,     
+MA.EMP_NUM, 
+HR.EMPLOYEE_NAME,                  
+MA.DEPT_ID,
+DT.DEPARTMENT_NAME,
+MA.DATE_CAPTURE,
+MA.ON_DUTY,
+MA.OFF_DUTY,
+MA.CLOCK_IN,
+MA.CLOCK_OUT,
+MA.LATE,
+MA.EARLY,
+MA.ABSENT_FLAG_YN,
+MA.TOTAL_WORK_TIME,
+MA.OT_HRS,
+MA.HOLIDAY_YN,
+APPROVE_FLAG_YN,
+PROCESS_FLAG_YN,
+MANUAL_ENT_Y,
+REMARKS/NOTE,
+ATTRIBUTE_CATEGORY,
+ATTRIBUTE1,
+ATTRIBUTE2,
+ATTRIBUTE3,
+ATTRIBUTE4,
+ATTRIBUTE5,
+ATTRIBUTE6,
+ATTRIBUTE7,
+ATTRIBUTE8,
+ATTRIBUTE9,
+ATTRIBUTE10,
+CREATED_BY,
+CREATION_DATE,
+LAST_UPDATED_BY,
+LAST_UPDATE_DATE,
+LAST_UPDATE_LOGIN
+        FROM
+        MOISS_EMP_ATTENDANCE MA,
+  --MOISS_DEPARTMENT  DT,         //NOT YET IMPLEMENTED
+PER_ALL_PEOPLE_F HR
+WHERE MI.DEPT_ID=DT.DEPT_ID
+AND HR.PERSON_ID=MI.EMPLOYEE_NUMBER;
+

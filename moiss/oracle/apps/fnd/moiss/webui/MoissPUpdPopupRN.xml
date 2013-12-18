@@ -1,0 +1,210 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:header version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" standalone="true" controllerClass="moiss.oracle.apps.fnd.moiss.webui.MoissUpdPopupCO" amDefName="moiss.oracle.apps.fnd.moiss.server.MoissPunchAM">
+   <ui:contents>
+      <oa:tableLayout id="region1" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowOne" width="100%">
+               <ui:contents>
+                  <oa:cellFormat id="region76">
+                     <ui:contents>
+                        <oa:spacer id="item56" width="30"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region3" hAlign="left" vAlign="top" width="35%">
+                     <ui:contents>
+                        <oa:defaultSingleColumn id="region71633118" headerDisabled="true">
+                           <ui:contents>
+                              <oa:messageTextInput id="EmpName" prompt="Employee Name" required="yes"/>
+                              <oa:messageTextInput id="EmpNo" prompt="Employee Number" required="yes"/>
+                           </ui:contents>
+                        </oa:defaultSingleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region13"/>
+                  <oa:cellFormat id="region14" hAlign="left" vAlign="top" width="55%">
+                     <ui:contents>
+                        <oa:defaultSingleColumn id="region71633119" headerDisabled="true">
+                           <ui:contents>
+                              <oa:messageTextInput id="Dept" prompt="Department" required="yes"/>
+                              <oa:messageTextInput id="DateFieldItem" tipType="dateFormat" dataType="DATE" viewName="MoissCIOVO" viewAttr="Date">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="updatefordate"/>
+                                 </ui:primaryClientAction>
+                              </oa:messageTextInput>
+                           </ui:contents>
+                        </oa:defaultSingleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+            <oa:rowLayout id="RowThree">
+               <ui:contents>
+                  <oa:cellFormat id="region716">
+                     <ui:contents>
+                        <oa:spacer id="item515" height="20"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+            <oa:rowLayout id="RowFive" width="50%" rendered="false">
+               <ui:contents>
+                  <oa:cellFormat id="region8">
+                     <ui:contents>
+                        <oa:staticStyledText id="item61" text="Cout" prompt="Cout"/>
+                        <oa:messageTextInput id="item71" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region96">
+                     <ui:contents>
+                        <oa:staticStyledText id="item86" text="Cin" prompt="Cin"/>
+                        <oa:messageTextInput id="item96" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region95">
+                     <ui:contents>
+                        <oa:staticStyledText id="item85" text="Cin" prompt="Cin"/>
+                        <oa:messageTextInput id="item95" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region94">
+                     <ui:contents>
+                        <oa:staticStyledText id="item84" text="Cin" prompt="Cin"/>
+                        <oa:messageTextInput id="item94" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region93">
+                     <ui:contents>
+                        <oa:staticStyledText id="item83" text="Cin" prompt="Cin"/>
+                        <oa:messageTextInput id="item93" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region92">
+                     <ui:contents>
+                        <oa:staticStyledText id="item82" text="Cin" prompt="Cin"/>
+                        <oa:messageTextInput id="item92" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region91">
+                     <ui:contents>
+                        <oa:staticStyledText id="item81" text="Cin" prompt="Cin"/>
+                        <oa:messageTextInput id="item91" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region9">
+                     <ui:contents>
+                        <oa:staticStyledText id="item8" text="Cin" prompt="Cin"/>
+                        <oa:messageTextInput id="item9" prompt=""/>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+      <oa:tableLayout id="region71633115" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowTwo">
+               <ui:contents>
+                  <oa:cellFormat id="region15">
+                     <ui:contents>
+                        <oa:spacer id="item13" width="135"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region5"/>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+      <oa:tableLayout id="region71633116" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowFive1" width="50%" rendered="true">
+               <ui:contents>
+                  <oa:cellFormat id="region81">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="region7163311" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="item63" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="item621" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageTextInput id="MCin1" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" serverUnvalidated="true" viewName="MoissCIOVO" viewAttr="Cin1" tipMessageAppShortName="ak" tipMessageName="HH24:MM" maximumLength="255"/>
+                              <oa:messageTextInput id="MCout1" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" serverUnvalidated="true" viewName="MoissCIOVO" viewAttr="Cout1" tipMessageAppShortName="ak" tipMessageName="HH24:MM" maximumLength="255"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region961">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="region7163312" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="item622" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="item623" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageTextInput id="MCin2" prompt="" tipType="shortTip" columns="10" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin2" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM"/>
+                              <oa:messageTextInput id="MCout2" prompt="" tipType="shortTip" columns="10" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout2" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region71633113">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="region71633111" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="item631" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="item6211" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageTextInput id="MCin3" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin3" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM"/>
+                              <oa:messageTextInput id="MCout3" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout3" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region71633114">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="region71633112" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="item632" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="item6212" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageTextInput id="MCin4" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin4" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM"/>
+                              <oa:messageTextInput id="MCout4" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout4" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+      <oa:tableLayout id="region71633117" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowSix">
+               <ui:contents>
+                  <oa:cellFormat id="region7161">
+                     <ui:contents>
+                        <oa:spacer id="item5151" height="20"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+            <oa:rowLayout id="RowSeven">
+               <ui:contents>
+                  <oa:cellFormat id="region75">
+                     <ui:contents>
+                        <oa:spacer id="item55" width="800"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region12">
+                     <ui:contents>
+                        <oa:submitButton id="Save" text="Save" prompt="Save">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="Save"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                        <oa:submitButton id="Clear" text="Clear" prompt="Clear">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="ClearButton"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+   </ui:contents>
+</oa:header>
